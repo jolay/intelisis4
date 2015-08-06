@@ -15,17 +15,17 @@
  */
 
 // ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', 'wordpress');
+/** Codio */
+/*define('DB_NAME', 'wordpress');*/
+/*define('DB_USER', 'wordpressuser');*/
+/*define('DB_PASSWORD', 'password');*/
+/*define('DB_HOST', 'localhost');*/
 
-/** MySQL database username */
-define('DB_USER', 'wordpressuser');
-
-/** MySQL database password */
-define('DB_PASSWORD', 'password');
-
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
+/** 1and1 */
+define('DB_NAME', 'db578162473');
+define('DB_USER', 'dbo578162473');
+define('DB_PASSWORD', 'Aurea1618#@!$');
+define('DB_HOST', 'db578162473.db.1and1.com');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');

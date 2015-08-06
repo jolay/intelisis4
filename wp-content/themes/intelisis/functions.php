@@ -303,9 +303,9 @@ add_shortcode( 'panel', 'panel_shortcode' );
 //Inbound form
 function inbound_form($atts, $content = null) {
   include 'redirect.php';
-    
-  $a = shortcode_atts( array(
-	'id' => '',
+
+ $a = shortcode_atts( array(
+    'id' => '',
     'class' => '',
     'url' => '',
     'source' => '',
@@ -316,32 +316,30 @@ function inbound_form($atts, $content = null) {
     'name' => '',
     'button' => '',
   ), $atts );
-    
-  ob_start();    
-    
-  $url = esc_attr($a['url']) .  
+
+  ob_start();
+
+  $url = esc_attr($a['url']) .
     (empty(esc_attr($a['source']))? '' : '?utm_source=' . esc_attr($a['source'])) .
-    (empty(esc_attr($a['medium']))? '' : '&utm_medium=' . esc_attr($a['medium'])) . 
+    (empty(esc_attr($a['medium']))? '' : '&utm_medium=' . esc_attr($a['medium'])) .
     (empty(esc_attr($a['term']))? '' : '&utm_term=' . esc_attr($a['term'])) .
-    (empty(esc_attr($a['content']))? '' : '&utm_content=' . esc_attr($a['content'])) . 
+    (empty(esc_attr($a['content']))? '' : '&utm_content=' . esc_attr($a['content'])) .
     (empty(esc_attr($a['campaign']))? '' : '&utm_campaign=' . esc_attr($a['campaign']));
-    
+
   $referencia = esc_attr($a['name']);
-        
-  $stringexample2 = '   
+
+  $stringexample2 = '
   <FORM id="'.esc_attr($a['id']).'" method ="POST" class="'.esc_attr($a['class']).'" action = "" data-abide>
    <div class="row">
    <div class="small-12 medium-6 columns name-field">
     <label>Nombre completo <small>Requerido</small>
     <INPUT TYPE = "text" Name="Nombre" required pattern="[a-zA-Z]+" ID="Nombre"> </label>
    <small class="error">Entrada invalida</small> </div>
-   
     <div class="small-12 medium-6 columns">
     <label>Correo electrónico <small>requerido</small>
     <input type="email" name="email" required> </label>
     <small class="error">Correo electrónico invalido</small>
     </div> </div>
-    
     <div class="row">
     <div class="small-12 medium-6 columns"
     <label>Teléfono
@@ -353,7 +351,6 @@ function inbound_form($atts, $content = null) {
     <INPUT TYPE = "text" Name="Empresa" VALUE ="" ID="Empresa" required>  </label>
     <small class="error">Entrada invalida</small>
     </div> </div>
-    
     <div class="row">
     <div class="small-12 medium-6 columns">
     <label>Cantidad de empleados <small>Requerido</small>
@@ -366,7 +363,6 @@ function inbound_form($atts, $content = null) {
     </select> </label>
     <small class="error">Seleccionar una opción</small>
     </div>
-    
     <div class="small-12 medium-6 columns">
     <label>Cargo en la empresa <small>Requerido</small>
     <select name="CargoEmpresa" required>
@@ -378,19 +374,16 @@ function inbound_form($atts, $content = null) {
     </select> </label>
     <small class="error">Seleccionar una opción</small>
     </div> </div>
-    
     <div class="row">
     <div class="small-12 medium-6 columns">
     <label> <input type="hidden" name="direccion" ID="direccion" value="'. $url .'"> </label>
     <label> <input type="hidden" name="referencia" ID="referencia" value="'. $referencia .'"> </label>
     </div> </div>
-    
     <div class="small-12 medium-7 columns small-centered small-vertical-space">
     <input type="Submit" form="'.esc_attr($a['id']).'" name="Submit" class="button expand 3d" value="'.esc_attr($a['button']).'">
     </div> </div>
   </FORM>';
-  
-  return $stringexample2; 
+  return $stringexample2;
 }
 
 add_shortcode( 'inbound-form', 'inbound_form' );
